@@ -1,0 +1,52 @@
+<h2>Workers</h2>
+
+<script type="text/javascript">
+  
+	var worker = new Worker("/scripts/worker.js"); 
+  
+	worker.onmessage = function (event) {
+    
+    console.log(event.data);
+    
+		var newItem = $('<li>', {
+			html: event.data,
+			'class': 'list-group-item'
+		});		
+    
+    $("#messageList").append(newItem);
+    
+	};
+
+	worker.postMessage("START");	
+   
+	$("#send").click(function () {
+    
+	    worker.postMessage($("#message").val());
+      
+	});
+  
+</script>	
+<form class="form-horizontal">
+  <fieldset>
+    <legend>Send Message to Worker</legend>
+    <div class="form-group">
+      <label class="col-lg-2 control-label" for="message">Message</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="message" type="text" placeholder="Message">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button class="btn btn-primary" id="send" type="submit">Send Message</button>
+      </div>
+    </div>
+    
+    <div class="form-group">	
+    	<label class="col-lg-2 control-label">Messages from Worker</label>
+    	<div class="col-lg-10">	
+      <ul id="messageList" class="list-group">
+      </ul>
+    	</div>
+    </div>
+  </fieldset>
+</form>

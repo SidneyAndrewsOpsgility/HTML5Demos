@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" ng-app="htmlApp">
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/yeti/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" aria-expanded="false" aria-controls="navbar" type="button" data-toggle="collapse" data-target="#navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Awesome HTML5 Demos</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="nav navbar-nav">
+            <li ng-class="{ active: isActive('/svg')}"><a href="#/svg">SVG</a></li>
+            <li ng-class="{ active: isActive('/jquery')}"><a href="#/jquery">jQuery</a></li>
+            <li ng-class="{ active: isActive('/selectors')}"><a href="#/selectors">Selectors</a></li>
+            <li ng-class="{ active: isActive('/workers')}"><a href="#/workers">Workers</a></li>
+            <li ng-class="{ active: isActive('/video')}"><a href="#/video">Video</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div ng-view></div>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://code.angularjs.org/1.3.9/angular.js"></script>
+    <script src="https://code.angularjs.org/1.3.9/angular-route.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers.js"></script>
+</body>
+</html>

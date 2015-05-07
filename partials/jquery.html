@@ -1,0 +1,86 @@
+<h2>jQuery</h2>
+<h3>jQuery Selector</h3>
+<script type="text/javascript">
+	$(document).ready(function () {
+		
+		/*$('button').css('background', '#65a9d7').css('margin', '25px');
+		
+		$('button#buttonone').css('font-weight', 'bold');
+				
+		$('.stylebeta').css('border', '3px solid #96d1f8');
+		
+		$('#buttontwo').css('font-family','Georgia');
+		
+		$('button.stylealpha').css('border-radius','5px');*/
+		
+	});
+</script>
+<button id="buttonone" class="stylealpha">Style Me</button>
+<button id="buttontwo" class="stylebeta">Style Me Too</button>
+<h3>jQuery Interactive</h3>
+<script type="text/javascript">
+	$(document).ready(function () {
+		
+		$('button#buttonfour').hide();
+			
+		$('button#buttonthree').click(function () {
+		
+			$(this).hide();	
+			$('button#buttonfour').show();
+			
+		});
+				
+	});
+</script>
+<button id="buttonthree">Click Me</button>
+<button id="buttonfour">Hi There!</button>
+<h3>jQuery HTTP Get</h3>
+<script type="text/javascript">
+	$(document).ready(function () {
+					
+		$('button#sendvote').click(function () {
+			
+			var nameInput = $('#name').val();
+			var colorInput = $('#color').val();
+		
+			$.post('api/data', { name: nameInput, color: colorInput })
+				.done(function (data) {
+									
+					$('p#voteresult').html(data);
+					
+				});
+						
+		});
+				
+	});
+</script>
+<div class="well">
+	<form class="form-horizontal">
+		<fieldset>
+			<legend>Vote on a Color</legend>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="name">Name</label>
+				<div class="col-lg-10">
+					<input class="form-control" id="name" type="text" placeholder="Name">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="color">Color</label>
+				<div class="col-lg-10">
+					<input class="form-control" id="color" type="text" placeholder="Color">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-10 col-lg-offset-2">
+					<button class="btn btn-primary" id="sendvote" type="submit">Send Vote</button>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Result</label>
+				<div class="col-lg-10">
+					<p id="voteresult"></p>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>

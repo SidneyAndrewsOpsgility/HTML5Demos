@@ -1,0 +1,20 @@
+{
+  "name": "ExistingApplication",
+  "version": "1.0.0",
+  "description": "Existing Web Application",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^3.20.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://opsgilitydev.visualstudio.com/DefaultCollection/_git/ExistingApplication"
+  },
+  "author": "Opsgility",
+  "license": "ISC"
+}
